@@ -1,0 +1,40 @@
+{
+  "name": "testgenx",
+  "version": "1.0.0",
+  "description": "A smart test data generator for APIs and forms that generates dynamic mock data based on schema definitions.",
+  "main": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node src/index.js",
+    "build": "echo 'Building the project...'"
+  },
+  "keywords": [
+    "test",
+    "data",
+    "mock",
+    "generator",
+    "api",
+    "forms",
+    "mock-data",
+    "npm-package"
+  ],
+  "author": "Denex A Poulose",
+  "license": "MIT",
+  "peerDependencies": {
+    "node": ">=14.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/denex-a-poulose/testgenx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/denex-a-poulose/testgenx/issues"
+  },
+  "homepage": "https://github.com/denex-a-poulose/testgenx#readme",
+  "engines": {
+    "node": ">=14.x"
+  }
+}
