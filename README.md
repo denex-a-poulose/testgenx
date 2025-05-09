@@ -1,6 +1,6 @@
-# test-data-gen
+# testgenx
 
-`test-data-gen` is a simple yet powerful mock data generator for developers. It allows you to quickly generate realistic dummy data for API testing, form validation, or other development tasks based on customizable schemas. Whether you're testing endpoints or need mock data for a project, this package helps you generate the data you need quickly and efficiently.
+`testgenx` is a simple yet powerful mock data generator for developers. It allows you to quickly generate realistic dummy data for API testing, form validation, or other development tasks based on customizable schemas. Whether you're testing endpoints or need mock data for a project, this package helps you generate the data you need quickly and efficiently.
 
 ## Features
 
@@ -11,10 +11,10 @@
 
 ## Installation
 
-You can easily install `test-data-gen` via npm:
+You can easily install `testgenx` via npm:
 
 ```bash
-npm install test-data-gen
+npm install testgenx
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ Once installed, you can start generating mock data by using the `generateMock()`
 ### Basic Example
 
 ```js
-const { generateMock } = require("test-data-gen");
+const { generateMock } = require("testgenx");
 
 const schema = {
   name: "name", // Will generate a random name
@@ -48,7 +48,7 @@ console.log(mockData);
 
 ### Supported Data Types
 
-You can define the data types in your schema, and `test-data-gen` will generate the corresponding data:
+You can define the data types in your schema, and `testgenx` will generate the corresponding data:
 
 - **String**: Generates random text (e.g., `name`, `string`).
 - **Email**: Generates a random email address (e.g., `email`).
@@ -85,7 +85,7 @@ console.log(mockData);
 
 ### Custom Data Generation
 
-You can extend `test-data-gen` by adding custom generation logic for more complex use cases.
+You can extend `testgenx` by adding custom generation logic for more complex use cases.
 
 ```js
 const schema = {
