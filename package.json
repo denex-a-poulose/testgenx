@@ -1,6 +1,6 @@
 {
   "name": "testgenx",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A smart test data generator for APIs and forms that generates dynamic mock data based on schema definitions.",
   "main": "src/index.js",
   "publishConfig": {
