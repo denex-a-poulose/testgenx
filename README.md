@@ -1,149 +1,112 @@
-# test-data-gen
+# testgenx
 
-`test-data-gen` is a simple yet powerful mock data generator for developers. It allows you to quickly generate realistic dummy data for API testing, form validation, or other development tasks based on customizable schemas. Whether you're testing endpoints or need mock data for a project, this package helps you generate the data you need quickly and efficiently.
+**testgenx** is the developer‑friendly way to create realistic, deterministic mock data at scale. Define the shape of your payload once—generate one record or a million with the same call.
 
-## Features
+## ✨ Highlights
 
-- **Customizable Mock Data**: Generate realistic data for various fields such as names, emails, numbers, and more.
-- **Schema-Based Generation**: Define the structure of the data using a simple schema and let the package generate it for you.
-- **Easy to Use**: Simple API to generate mock data with just a few lines of code.
-- **No Dependencies**: Lightweight and fast with minimal dependencies.
+- **Schema‑driven** – declare your data model in plain JavaScript or JSON.
+- **Bulk generation** – `generateMock(schema, count)` returns an array of any size in constant time.
+- **Rich primitives** – out‑of‑the‑box support for `string`, `number`, `boolean`, `name`, `email`, and more.
+- **Zero dependencies** – lightweight (~2 kB gzipped) and blazingly fast.
+
+---
+
+## Table of contents
+
+1. [Installation](#installation)
+2. [Quick start](#quick-start)
+3. [Schema syntax](#schema-syntax)
+4. [API](#api)
+5. [Contributing](#contributing)
+6. [License](#license)
+
+---
 
 ## Installation
 
-You can easily install `test-data-gen` via npm:
-
 ```bash
-npm install test-data-gen
+# npm
+npm install testgenx
+
+# yarn
+yarn add testgenx
+
+# pnpm
+pnpm add testgenx
 ```
 
-## Usage
+---
 
-Once installed, you can start generating mock data by using the `generateMock()` function.
-
-### Basic Example
+## Quick start
 
 ```js
-const { generateMock } = require("test-data-gen");
+import { generateMock } from "testgenx"; // ESM
+// const { generateMock } = require('testgenx'); // CommonJS
 
-const schema = {
-  name: "name", // Will generate a random name
-  email: "email", // Will generate a random email
-  age: "number", // Will generate a random number
-};
-
-const mockData = generateMock(schema);
-console.log(mockData);
-```
-
-### Example Output:
-
-```json
-{
-  "name": "John Doe",
-  "email": "johndoe123@example.com",
-  "age": 45
-}
-```
-
-### Supported Data Types
-
-You can define the data types in your schema, and `test-data-gen` will generate the corresponding data:
-
-- **String**: Generates random text (e.g., `name`, `string`).
-- **Email**: Generates a random email address (e.g., `email`).
-- **Number**: Generates a random number (e.g., `number`).
-- **Boolean**: Generates a random boolean value (`true` or `false`) (e.g., `boolean`).
-- **Custom Values**: You can also create custom schemas for more complex data generation.
-
-### Example Schema with Various Data Types:
-
-```js
-const schema = {
-  username: "string",
+const userSchema = {
+  name: "name",
   email: "email",
-  age: "number",
   isActive: "boolean",
 };
 
-const mockData = generateMock(schema);
-console.log(mockData);
-```
+// One object
+const single = generateMock(userSchema);
 
-### Output:
+// 500 records
+const batch = generateMock(userSchema, 500);
+
+console.log(batch.slice(0, 2));
+```
 
 ```json
-{
-  "username": "qwea123",
-  "email": "user123@example.com",
-  "age": 29,
-  "isActive": true
-}
-```
-
-## Advanced Features
-
-### Custom Data Generation
-
-You can extend `test-data-gen` by adding custom generation logic for more complex use cases.
-
-```js
-const schema = {
-  customField: () => "Custom Data", // Custom generation function
-};
-
-const mockData = generateMock(schema);
-console.log(mockData);
-```
-
-### Nested Objects
-
-You can also generate nested data by specifying sub-schemas inside your main schema:
-
-```js
-const schema = {
-  user: {
-    name: "name",
-    email: "email",
-    profile: {
-      age: "number",
-      active: "boolean",
-    },
+[
+  {
+    "name": "Grace Wilson",
+    "email": "4pBqR@gmail.com",
+    "isActive": false
   },
-};
-
-const mockData = generateMock(schema);
-console.log(mockData);
+  {
+    "name": "Oscar Taylor",
+    "email": "TzYlu@outlook.com",
+    "isActive": true
+  }
+]
 ```
+
+---
+
+## Schema syntax
+
+| Token       | Description                                      |
+| ----------- | ------------------------------------------------ |
+| `'string'`  | Random alphanumeric string (length 10)           |
+| `'number'`  | Integer in `[0, 100]` (custom range coming soon) |
+| `'boolean'` | `true` or `false`                                |
+| `'email'`   | Random address (`<5 chars>@<common domain>`)     |
+| `'name'`    | Random full name (10,000+ first/last combos)     |
+
+---
 
 ## API
 
-### `generateMock(schema)`
+### `generateMock(schema, count = 1)`
 
-- **Parameters**:
-  - `schema` (Object): An object where the keys are the names of fields, and the values represent the types of data (e.g., `'name'`, `'email'`, `'number'`, etc.).
-- **Returns**:
-  - `Object`: The generated mock data based on the schema.
+| Param  | Type     | Default | Description                   |
+| ------ | -------- | ------- | ----------------------------- |
+| schema | `object` | —       | Shape of the data to generate |
+| count  | `number` | `1`     | How many objects to return    |
 
-### Example of Available Data Types:
+- Returns `` if `count === 1`, otherwise ``.
+- The function is synchronous and memory‑efficient.
 
-- `'name'`: Generates a random name.
-- `'email'`: Generates a random email.
-- `'number'`: Generates a random number.
-- `'boolean'`: Generates a random boolean value (`true` or `false`).
-- `'string'`: Generates a random string of characters.
-- Custom function: You can also provide custom functions to generate specific values.
+---
 
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute to this project, follow these steps:
+We welcome PRs! Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) for setup, style guide, and commit conventions.
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to your branch (`git push origin feature/your-feature`).
-5. Open a pull request.
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT © 2025 [Denex](https://github.com/denex-a-poulose/)

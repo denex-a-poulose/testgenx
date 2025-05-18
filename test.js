@@ -10,5 +10,5 @@ const schema = {
 };
 
 // Generate mock data
-const mockData = generateMock(schema);
+const mockData = generateMock(schema, 20000);
 console.log(mockData);

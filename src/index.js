@@ -1,9 +1,23 @@
-function generateMock(schema) {
-  const result = {};
-  for (const key in schema) {
-    result[key] = mockValue(schema[key]);
+const { firstNames, lastNames } = require("./names");
+
+function generateMock(schema, count = 1) {
+  if (count === 1) {
+    const result = {};
+    for (const key in schema) {
+      result[key] = mockValue(schema[key]);
+    }
+    return result;
   }
-  return result;
+
+  const results = [];
+  for (let i = 0; i < count; i++) {
+    const result = {};
+    for (const key in schema) {
+      result[key] = mockValue(schema[key]);
+    }
+    results.push(result);
+  }
+  return results;
 }
 
 function mockValue(type) {
@@ -48,8 +62,6 @@ function generateRandomEmail() {
 }
 
 function generateRandomName() {
-  const firstNames = ["John", "Jane", "Alice", "Bob", "Charlie"];
-  const lastNames = ["Doe", "Smith", "Johnson", "Brown", "Williams"];
   const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
   const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
   return `${firstName} ${lastName}`;
