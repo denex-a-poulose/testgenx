@@ -44,14 +44,9 @@ import { generateMock } from "testgenx"; // ESM
 // const { generateMock } = require('testgenx'); // CommonJS
 
 const userSchema = {
-  id: "uuid", // soon™
   name: "name",
   email: "email",
   isActive: "boolean",
-  profile: {
-    age: "number",
-    bio: "string",
-  },
 };
 
 // One object
@@ -66,13 +61,11 @@ console.log(batch.slice(0, 2));
 ```json
 [
   {
-    "id": "29a82b93-1ff8-4e7e-9c8b-838618fe0ac5",
     "name": "Grace Wilson",
     "email": "4pBqR@gmail.com",
     "isActive": false, 
   },
   {
-    "id": "5c4161f4-0adc-4d55-8e0d-8f0f0b8ee7c2",
     "name": "Oscar Taylor",
     "email": "TzYlu@outlook.com",
     "isActive": true,
@@ -89,8 +82,8 @@ console.log(batch.slice(0, 2));
 | `'string'`  | Random alphanumeric string (length 10)            |
 | `'number'`  | Integer in `[0, 100]` (custom range coming soon)  |
 | `'boolean'` | `true` or `false`                                 |
-| `'email'`   | Realistic address (`<5 chars>@<common domain>`)   |
-| `'name'`    | Random full name (600+ first/last combos)         |
+| `'email'`   | Random address (`<5 chars>@<common domain>`)   |
+| `'name'`    | Random full name (10,000+ first/last combos)         |
 
 ---
 
