@@ -1,10 +1,6 @@
 # testgenx
 
-<<<<<<< HEAD
-**testgenx** is the developer‑friendly way to create realistic, deterministic mock data at scale. Define the shape of your payload once—generate one record or a million with the same call.
-=======
-`testgenx` is a simple yet powerful mock data generator for developers. It allows you to quickly generate realistic dummy data for API testing, form validation, or other development tasks based on customizable schemas. Whether you're testing endpoints or need mock data for a project, this package helps you generate the data you need quickly and efficiently.
->>>>>>> d1708b3f8b29a3e2e0276e4ce91f51c6ac09b61a
+testgenx is a simple yet powerful mock data generator for developers. It allows you to quickly generate realistic dummy data for API testing, form validation, or other development tasks based on customizable schemas. Whether you're testing endpoints or need mock data for a project, this package helps you generate the data you need quickly and efficiently.
 
 ## ✨ Highlights
 
@@ -29,7 +25,8 @@
 ## Installation
 
 <<<<<<< HEAD
-```bash
+
+````bash
 # npm
 npm install testgenx
 
@@ -44,7 +41,7 @@ You can easily install `testgenx` via npm:
 ```bash
 npm install testgenx
 >>>>>>> d1708b3f8b29a3e2e0276e4ce91f51c6ac09b61a
-```
+````
 
 ---
 
