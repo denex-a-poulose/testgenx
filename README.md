@@ -5,7 +5,7 @@
 ![npm](https://img.shields.io/npm/v/testgenx.svg)
 ![minzipped size](https://img.shields.io/bundlephobia/minzip/testgenx)
 
-**testgenx** is the developer‑friendly way to create realistic, deterministic mock data at scale...
+**testgenx** is the developer‑friendly way to create realistic, deterministic mock data at scale. Define the shape of your payload once—generate one record or a million with the same call.
 
 ## ✨ Highlights
 
